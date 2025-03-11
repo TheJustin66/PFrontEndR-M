@@ -1,0 +1,10 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+  <input [(ngModel)]="email" type="email" placeholder="Email" required/>
+  <input [(ngModel)]="password" type="password" placeholder="Contraseña" required />
+  <input [(ngModel)]="mfa" placeholder="MFA" required />
+
+  <button (click)="login()">Ingresar</button>
+
+  <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+</div>

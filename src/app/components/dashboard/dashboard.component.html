@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+
+<div class="dashboard">
+  <h2> Rick & Morty - Personajes</h2>
+
+  <input type="text" [(ngModel)]="searchQuery" (input)="searchCharacters()" placeholder="Busca aquí tu personaje">
+
+  <select [(ngModel)]="selectedEpisode" (change)="selectEpisode()">
+    <option [value]="null" disabled selected> Seleccionar episodio</option>
+    <option *ngFor="let episode of episodes" [value]="episode.id"> {{episode.name}}  ({{episode.episode}})
+    </option>
+  </select>
+  <br><br>
+
+  <div *ngIf="characters.length === 0">
+    <p> No hay Personajes disponibles</p>
+  </div>
+  <div class="character-list">
+    <div *ngFor="let character of characters"
+    class="character-card"
+    (click) = "showCharacterDetails(character)"
+    > <img [src]="character.image" [alt]="character.name"/>
+    <p>{{character.name}}</p>
+  </div>
+</div>
+
+<div class="pagination">
+  <button (click)="changePage(this.currentPage - 1)" [disabled]="currentPage === 1">
+    Anterior
+  </button>
+  <span>Página {{currentPage}} de {{totalPages}}</span>
+  <button (click)="changePage(this.currentPage + 1)" [disabled]="currentPage === totalPages">
+    Siguiente
+  </button>
+</div>
+
+<div class="popup" *ngIf="selectedCharacter">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <h3>{{selectedCharacter.name}}</h3>
+    <img [src]="selectedCharacter.image" [alt]="selectedCharacter.name" />
+    <p><strong>Estado:</strong> {{selectedCharacter.status}}</p>
+    <p><strong>Especie:</strong>{{selectedCharacter.species}}</p>
+    <p><strong>Género:</strong>{{selectedCharacter.gender}}</p>
+    <p><strong>Origen:</strong>{{selectedCharacter.origin.name}}</p>
+  </div>
+</div>

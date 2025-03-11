@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <button class="hamburger" (click)="toggleMenu()">|||</button>
+  <h2>Bienvenido a Rick&Mortyavm</h2>
+  <ul [class.open]="isMenuOpen">
+    <li><a routerLink="/home">Inicio</a></li>
+    <li><a routerLink="/login">Salir</a></li>
+    <li><a routerLink="/dashboard">Personajes</a></li>
+  </ul>
+
+</nav>
