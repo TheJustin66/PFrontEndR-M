@@ -4,37 +4,97 @@
   background-color: black;
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: green;
+  border-radius: 2px;
+  border-color: green;
 }
-.hamburger{
-  background:none;
-  color: white;
-  font-size: 24px;
-  border: none;
-  cursor: pointer;
+h2{
+  text-align: center;
 }
-ul {
-  list-style-type: none;
-  display: flex;
-  gap: 20px;
+.barra{
+  position: fixed;
+  width: 10%;
+  height: 9%;
+
+  transition: .4s all;
+  z-index: 1;
+}
+.barra ul {
+  padding: 0px;
+  text-align: center;
+  list-style: none;
 }
 
-li a{
-  color: white;
-  text-decoration: none;
-  width: 50px;
+.barra li{
+  transition: .3s all;
 }
+
+.barra a{
+  text-decoration: none;
+  list-style: none;
+  transition: .3s all;
+  font-size: 0px;
+  padding: 0px;
+}
+.barra h2{
+  text-align: center;
+  color: white;
+  padding: 7px;
+  padding-bottom: 7px;
+  font-size: 0px;
+}
+.barra:hover{
+  width: 30%;
+  height: 100%;
+  background-color: black;
+}
+
+.barra:hover h2{
+  padding: 15px;
+  font-size: 35px;
+}
+.barra:hover a{
+  font-size: 20px;
+  color: white;
+  display: block;
+  padding: 20px;
+}
+.barra:hover li{
+  border-top: 1px solid green;
+  width: 100%;
+}
+.barra:hover ul:last-of-type{
+  border-bottom: 1px solid green;
+}
+.barra:hover a:hover{
+  font-size: 25px;
+  padding: 30px 0px;
+  background-color: greenyellow;
+}
+
 
 ul.open{
   display: block;
 }
 
 @media (max-width:800px){
-  ul{
-    display: none;
+  .barra:hover {
+    width: 100%;
+    height: auto;
+  }
+  .barra:hover a{
+    height: 20%;
+  }
+  .barra.ul{
+    display: flex;
     flex-direction: column;
   }
-  ul.open {
+  .barra.li{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .barra.ul.open {
     display: flex;
   }
 }
